@@ -18,11 +18,11 @@ public class Program {
         Company geekBrains = new Company("GeekBrains", jobAgency, 98000);
 
         Student student1 = new Student("Студент #1");
-        Master master1 = new Master("Мастер #1");
+        Junior jun1 = new Junior("Джун #1");
         Master master2 = new Master("Мастер #2");
 
         jobAgency.registerObserver(student1);
-        jobAgency.registerObserver(master1);
+        jobAgency.registerObserver(jun1);
         jobAgency.registerObserver(master2);
 
         for (int i = 0; i < 3; i++){

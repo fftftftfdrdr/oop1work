@@ -1,6 +1,6 @@
 package ru.geekbrains.lesson7.observer;
 
-public class Master implements Observer{
+public class Master implements Observer {
 
     private String name;
     private int salary = 80000;
@@ -9,16 +9,25 @@ public class Master implements Observer{
         this.name = name;
     }
 
+    private Boolean checkCondition(Vacation vacation) {
+        return this.salary <= vacation.getSalary();
+    }
+
     @Override
-    public void receiveOffer(String nameCompany, int salary) {
-        if (this.salary <= salary){
-            System.out.printf("Специалист %s: Мне нужна эта работа! (компания: %s; заработная плата: %d)\n",
-                    name, nameCompany, salary);
-            this.salary = salary;
+    public String getName() {
+        return this.name;
+    }
+
+    @Override
+    public Boolean receiveOffer(Vacation vacation) {
+        if ( this.checkCondition(vacation) ) {
+            System.out.printf("Рабочий %s: Я готов к работе! (желаемая заработная плата: %d)\n", name, salary);
+            this.salary = vacation.getSalary();
+            return true;
         }
-        else {
-            System.out.printf("Специалист %s: Я найду работу получше! (компания: %s; заработная плата: %d)\n",
-                    name, nameCompany, salary);
-        }
+
+        System.out.printf("Рабочий %s: Не, найду работу получше! (желаемая заработная плата: %d)\n", name, salary);
+        return false;
+
     }
 }

@@ -13,7 +13,7 @@ public class Program {
                 .append("DDD")
                 .toString();
 
-        Order oder = new OrderBuilder()
+        Order order = new OrderBuilder()
                 .setPrice(300)
                 .setProductId(45001)
                 .setQnt(2)

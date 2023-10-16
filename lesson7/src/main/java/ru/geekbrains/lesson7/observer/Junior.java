@@ -1,11 +1,11 @@
 package ru.geekbrains.lesson7.observer;
 
-public class Student implements Observer {
+public class Junior implements Observer {
 
     private String name;
-    private int salary = 2000;
+    private int salary = 80000;
 
-    public Student(String name) {
+    public Junior(String name) {
         this.name = name;
     }
 
